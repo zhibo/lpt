@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-#define LOCAL_PORT      8080
+#define LOCAL_PORT      10800
 #define MAXLINE         4096
 #define MAXSUB          200 
 #define PKT_SIZE        456
@@ -26,7 +26,6 @@ typedef enum _CLIENT_TYPE{
 
 static int _socket_init(int *fd)
 {
-    printf("relay_local_init\n");
 	struct sockaddr_in addr;
     int ret;
     socklen_t len = sizeof(ret);
@@ -94,12 +93,14 @@ static int _str_echo(int fd)
 
 again:
     while ((n = read(fd, buf, MAXLINE)) > 0){
-        send(fd, buf, n, 0);
+        if ( send(fd, buf, n, 0) < 0){
+            printf("server send error, %s\n", strerror(errno));
+        }
     }
     if ( n < 0 && errno == EINTR){
         goto again;
     } else if ( n < 0){
-        printf("server: read error\n");
+        printf("server read error, %s\n", strerror(errno));
     }
 }
 
@@ -115,7 +116,7 @@ int main()
     while(1){
         conn = accept(fd, (struct sockaddr *)&cliaddr, &bufflen);
         if ( conn < 0  ){
-            printf("relay: connection failed!, %s\n", strerror(errno));
+            printf("server: connection failed!, %s\n", strerror(errno));
             continue;
         }
         printf("conn = %d\n", conn);

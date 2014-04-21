@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main()
+{
+    int a = 0x12345678;
+    short *pc = (short *)&a;
+    printf("0x%0x 0x%0x 0x%0x\n", (int)(pc[0]), (int)(pc[1]), (int)(pc[2]));
+
+    char *pa = (char*)&a;
+    printf("0x%0x 0x%0x 0x%0x 0x%0x\n", (int)*pa,(int)*(pa+1),(int)*(pa+2),(int)*(pa+3));
+    return 0;
+}
