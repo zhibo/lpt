@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
 
 int main()
 {
@@ -8,9 +9,10 @@ int main()
     a[9] = '\0';
 
     char *b = "123456";
+    printf("sizeof(uint32_t): %d\n", (int)sizeof(uint32_t));
     printf("sizeof(int): %d\n", (int)sizeof(int));
     printf("sizeof(char): %d\n", (int)sizeof(char));
-    printf("sizeof(long): %d\n", (int)sizeof(long));
+    printf("sizeof(unsigned long): %d\n", (int)sizeof(unsigned long));
     printf("sizeof(short): %d\n", (int)sizeof(short));
     printf("sizeof(char *): %d\n", (int)sizeof(char *));
     printf("sizeof(char[10]): %d\n", (int)sizeof(char[10]));
