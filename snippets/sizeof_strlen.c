@@ -21,6 +21,14 @@ int main()
     printf("strlen(b): %d\n", (int)strlen(b));
     printf("sizeof(\"123456\"): %d\n", (int)sizeof("123456"));
     printf("sizeof(\"abc\"): %d\n", (int)sizeof("abc"));
+    {
+        int i = 10;
+        int j = 20;
+        printf("sizeof(i=j+1): %d\n", (int)sizeof(i=j+1));
+        printf("i: %d, j: %d\n", i, j);
+        printf("sizeof(int): %d\n", (int)sizeof(int));
+        printf("sizeof(i): %d\n", (int)sizeof(i));
+    }
 /*     printf("sizeof(type): %d\n", (int)sizeof(type));
  *     printf("sizeof(type): %d\n", (int)sizeof(type));
  *     printf("sizeof(type): %d\n", (int)sizeof(type));
