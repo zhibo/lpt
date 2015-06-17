@@ -3,14 +3,14 @@
 #include <stdlib.h>
 
 
-void foo(char *p)
+void foo(char **p)
 {
-    strncpy(p, "hello", 10);
+    strncpy(*p, "hello", 10);
 }
 
 int main()
 {
     char *p = malloc(10);
-    foo(p);
+    foo(&p);
     printf("p: %s", p);
 }
