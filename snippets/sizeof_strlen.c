@@ -15,6 +15,8 @@ int main()
     a[9] = '\0';
 
     char *b = "123456";
+    printf("sizeof('c'): %d\n", (int)sizeof('c'));
+    printf("sizeof(char): %d\n", (int)sizeof(char));
     printf("sizeof(uint32_t): %d\n", (int)sizeof(uint32_t));
     printf("sizeof(int): %d\n", (int)sizeof(int));
     printf("sizeof(char): %d\n", (int)sizeof(char));
