@@ -2,6 +2,12 @@
 #include <string.h>
 #include <stdint.h>
 
+
+void func(char *a)
+{
+    printf("sizeof(a) from parameter: %d\n", (int)sizeof(a));
+}
+
 int main()
 {
     char a[10];
@@ -29,6 +35,8 @@ int main()
         printf("sizeof(int): %d\n", (int)sizeof(int));
         printf("sizeof(i): %d\n", (int)sizeof(i));
     }
+
+    func(a);
 /*     printf("sizeof(type): %d\n", (int)sizeof(type));
  *     printf("sizeof(type): %d\n", (int)sizeof(type));
  *     printf("sizeof(type): %d\n", (int)sizeof(type));
